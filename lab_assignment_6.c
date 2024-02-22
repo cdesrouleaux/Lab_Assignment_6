@@ -1,8 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+// fix me seg faut
 int search(int numbers[], int low, int high, int value) 
-{
+{ 
+    int mid;
+
+	if(low <= high)
+	{
+		mid = (low+high)/2;
+
+		if(numbers[mid] == value)
+			return mid;
+
+		else if(numbers[mid] < value)	
+			return(search(numbers, low, mid-1, value));
+
+		else if(numbers[mid] > value)
+			return(search(numbers, mid+1, high, value));
+	}
+
 	return -1;
+
 }
 
 void printArray(int numbers[], int sz)
@@ -19,7 +38,7 @@ void printArray(int numbers[], int sz)
 int main(void)
 {
 	int i, numInputs;
-	char* str;
+	// char* str;
 	float average;
 	int value;
 	int index;
@@ -42,7 +61,8 @@ int main(void)
 		}
 
 		printArray(numArray, countOfNums);
-		value = average / countOfNums;
+		// value = (int)(average / countOfNums);
+		value = 5, average = 5;
 		index = search(numArray, 0, countOfNums - 1, value);
 		if (index >= 0)
 		{
