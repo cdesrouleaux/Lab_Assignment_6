@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// fix me seg faut
+
 int search(int numbers[], int low, int high, int value) 
-{ 
-    int mid;
+{
+	int mid;
 
 	if(low <= high)
 	{
-		mid = (low+high)/2;
+		mid = (low+high)/2; 
 
 		if(numbers[mid] == value)
 			return mid;
@@ -21,7 +21,6 @@ int search(int numbers[], int low, int high, int value)
 	}
 
 	return -1;
-
 }
 
 void printArray(int numbers[], int sz)
@@ -61,8 +60,7 @@ int main(void)
 		}
 
 		printArray(numArray, countOfNums);
-		// value = (int)(average / countOfNums);
-		value = 5, average = 5;
+		value = average / countOfNums;
 		index = search(numArray, 0, countOfNums - 1, value);
 		if (index >= 0)
 		{
